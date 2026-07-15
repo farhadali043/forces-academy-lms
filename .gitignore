@@ -1,0 +1,6 @@
+# Local DB credentials
+config/db.php
+
+# Uploaded assignment files
+uploads/*
+!uploads/.gitkeep

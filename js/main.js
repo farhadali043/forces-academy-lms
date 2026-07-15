@@ -1,0 +1,1 @@
+console.log("Forces Academy LMS Loaded");
