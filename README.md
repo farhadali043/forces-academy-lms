@@ -21,7 +21,7 @@ to manage courses, materials, notices, and students.
 
 ## Logins
 
-- **Student:** email `zainab.ahsan@student.forces.edu.pk` · password `12345`
+- **Student:** email `farhad.ali@student.forces.edu.pk` · password `12345`
   (or register a brand-new account from the login page)
 - **Admin:** username `admin` · password `admin123`
   (open from the login page → "Open admin panel", or go to `admin_login.php`)

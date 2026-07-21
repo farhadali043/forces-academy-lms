@@ -75,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <p class="auth-footer">No account? <a href="register.php">Create one</a></p>
+    <p class="text-center text-muted mt-2 mb-0" style="font-size:.76rem;letter-spacing:.04em;">Project by Farhad Ali</p>
   </div>
 </div>
 <script src="js/main.js"></script>

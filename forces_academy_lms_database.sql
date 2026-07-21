@@ -111,7 +111,7 @@ ON DUPLICATE KEY UPDATE password = VALUES(password), email = VALUES(email);
 --   Email:    farhad.ali@student.forces.edu.pk
 --   Password: 12345
 INSERT INTO students (full_name, email, password, roll_number, class) VALUES
-('Farhad Ali', 'farhad.ali@student.forces.edu.pk', '$2b$10$DmFnDfmNkjlX8r.Cb7ZLm.2Oh3c9HDgfuDdL0J1ddm8Lznf9u8aoi', '2024-BS-SE-023', 'BS Computer Science — 4th');
+('Farhad Ali', 'farhad.ali@student.forces.edu.pk', '$2b$10$DmFnDfmNkjlX8r.Cb7ZLm.2Oh3c9HDgfuDdL0J1ddm8Lznf9u8aoi', 'FA23-BSCS-014', 'BS Computer Science - 4th');
 
 -- Courses (fresh set with distinct instructors)
 INSERT INTO courses (course_name, description, teacher_name) VALUES

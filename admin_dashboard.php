@@ -6,7 +6,7 @@ require_admin();
 $stats = [
     'students'  => (int) mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM students"))['total'],
     'courses'   => (int) mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM courses"))['total'],
-    'materials' => (int) mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM course_materials"))['total'],
+    'assignments' => (int) mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM assignments"))['total'],
     'notices'   => (int) mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM notices"))['total'],
 ];
 
@@ -31,7 +31,7 @@ require 'admin_partials/header.php';
 <div class="row g-3 mb-4">
   <div class="col-6 col-md-3"><div class="mini-stat-card"><span class="mini-stat-icon"><i class="bi bi-people"></i></span><div><h3><?php echo $stats['students']; ?></h3><p>Students</p></div></div></div>
   <div class="col-6 col-md-3"><div class="mini-stat-card"><span class="mini-stat-icon"><i class="bi bi-book"></i></span><div><h3><?php echo $stats['courses']; ?></h3><p>Courses</p></div></div></div>
-  <div class="col-6 col-md-3"><div class="mini-stat-card"><span class="mini-stat-icon"><i class="bi bi-folder2-open"></i></span><div><h3><?php echo $stats['materials']; ?></h3><p>Materials</p></div></div></div>
+  <div class="col-6 col-md-3"><div class="mini-stat-card"><span class="mini-stat-icon"><i class="bi bi-clipboard-check"></i></span><div><h3><?php echo $stats['assignments']; ?></h3><p>Assignments</p></div></div></div>
   <div class="col-6 col-md-3"><div class="mini-stat-card"><span class="mini-stat-icon"><i class="bi bi-megaphone"></i></span><div><h3><?php echo $stats['notices']; ?></h3><p>Notices</p></div></div></div>
 </div>
 
@@ -116,6 +116,7 @@ require 'admin_partials/header.php';
       <div class="d-grid gap-2">
         <a class="btn btn-auth-primary" href="admin_courses.php"><i class="bi bi-plus-circle"></i> Add a Course</a>
         <a class="btn btn-auth-primary" href="admin_notices.php"><i class="bi bi-megaphone"></i> Publish a Notice</a>
+        <a class="btn btn-auth-primary" href="admin_results.php"><i class="bi bi-bar-chart-line"></i> Upload Results</a>
         <a class="btn btn-outline-primary" href="admin_students.php"><i class="bi bi-people"></i> Review Students</a>
       </div>
     </div>

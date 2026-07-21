@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <h2 class="auth-title">Admin Login</h2>
-  
+    <p class="auth-subtitle">Manage courses, notices, and materials</p>
 
     <?php if ($error): ?>
       <div class="alert alert-danger-custom"><i class="bi bi-exclamation-circle"></i> <?php echo e($error); ?></div>

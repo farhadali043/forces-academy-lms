@@ -24,8 +24,10 @@ if ($flash) {
 $nav_items = [
     'dashboard' => ['admin_dashboard.php', 'bi-speedometer2', 'Dashboard'],
     'courses'   => ['admin_courses.php',   'bi-book',         'Courses'],
-    'notices'   => ['admin_notices.php',   'bi-megaphone',    'Notices'],
-    'students'  => ['admin_students.php',  'bi-people',       'Students'],
+    'notices'     => ['admin_notices.php',     'bi-megaphone',       'Notices'],
+    'assignments' => ['admin_assignments.php', 'bi-clipboard-check', 'Assignments'],
+    'results'     => ['admin_results.php',     'bi-bar-chart-line',  'Upload Results'],
+    'students'    => ['admin_students.php',    'bi-people',          'Students'],
 ];
 ?>
 <!DOCTYPE html>
