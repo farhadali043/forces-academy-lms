@@ -96,6 +96,20 @@ CREATE TABLE IF NOT EXISTS results (
     CONSTRAINT fk_results_student FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
 );
 
+-- ------------------------------------------------------------
+--  WEEK 6  —  timetable
+-- ------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS timetable (
+    id          INT(11) PRIMARY KEY AUTO_INCREMENT,
+    class       VARCHAR(50)  NOT NULL,
+    day         VARCHAR(20)  NOT NULL,
+    time_slot   VARCHAR(30)  NOT NULL,
+    subject     VARCHAR(100) NOT NULL,
+    teacher     VARCHAR(100) NOT NULL,
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- ============================================================
 --  SAMPLE DATA
 -- ============================================================
@@ -151,3 +165,16 @@ INSERT INTO results (student_id, course_id, subject, marks, total_marks, grade, 
 (1, 3, 'Data Structures & Algorithms',  47, 50, 'A+', 'Midterm'),
 (1, 4, 'Software Engineering',          40, 50, 'A',  'Quiz'),
 (1, 5, 'Artificial Intelligence',       33, 50, 'B',  'Quiz');
+
+-- Timetable (Week 6) — sample entries for the demo student's class
+INSERT INTO timetable (class, day, time_slot, subject, teacher)
+SELECT DISTINCT class, 'Monday',    '09:00 - 10:00', 'Calculus & Analytical Geometry', 'Dr. Kamran Sethi'   FROM students
+UNION ALL
+SELECT DISTINCT class, 'Monday',    '10:00 - 11:00', 'Digital Logic Design',           'Engr. Rabia Tanveer' FROM students
+UNION ALL
+SELECT DISTINCT class, 'Wednesday', '09:00 - 10:00', 'Data Structures & Algorithms',   'Dr. Imran Qureshi'  FROM students
+UNION ALL
+SELECT DISTINCT class, 'Wednesday', '11:00 - 12:00', 'Software Engineering',           'Ms. Nida Farooq'    FROM students
+UNION ALL
+SELECT DISTINCT class, 'Friday',    '10:00 - 11:00', 'Artificial Intelligence',        'Dr. Waleed Siddiqui' FROM students;
+

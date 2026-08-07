@@ -37,6 +37,7 @@ $overall    = $totalMax > 0 ? round(($totalMarks / $totalMax) * 100, 1) : 0;
       <a class="nav-link text-white" href="courses.php">Courses</a>
       <a class="nav-link text-white" href="assignments.php">Assignments</a>
       <a class="nav-link text-white active" href="results.php">Results</a>
+      <a class="nav-link text-white" href="timetable.php">Timetable</a>
       <a class="nav-link text-white" href="notices.php">Notices</a>
       <a class="nav-link text-white" href="profile.php">Profile</a>
       <a class="btn btn-logout" href="logout.php">Logout</a>

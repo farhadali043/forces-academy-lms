@@ -24,6 +24,7 @@ $notices = mysqli_query($conn, "SELECT id, title, content, posted_by, created_at
       <a class="nav-link text-white" href="courses.php">Courses</a>
       <a class="nav-link text-white" href="assignments.php">Assignments</a>
       <a class="nav-link text-white" href="results.php">Results</a>
+      <a class="nav-link text-white" href="timetable.php">Timetable</a>
       <a class="nav-link text-white active" href="notices.php">Notices</a>
       <a class="nav-link text-white" href="profile.php">Profile</a>
       <a class="btn btn-logout" href="logout.php">Logout</a>

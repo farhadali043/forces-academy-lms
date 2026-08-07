@@ -44,6 +44,16 @@ to manage courses, materials, notices, and students.
 - `results.php` — your marks, percentage and grade per subject
 - Tables: `assignments`, `submissions`, `results`
 
+**Week 6 — timetable & profile**
+
+- `timetable.php` — the logged-in student's weekly class timetable, shown as a
+  grid (days as columns, time slots as rows)
+- `admin_timetable.php` — admin adds timetable entries (class, day, time slot,
+  subject, teacher), lists them all, and can delete any entry
+- `profile.php` — view profile details, **edit name and email**, and a separate
+  **change password** form that verifies the current password first
+- Table: `timetable`
+
 **Admin side** (`admin_partials/` shared layout)
 - `admin_dashboard.php`, `admin_courses.php`, `admin_course_materials.php`,
   `admin_notices.php`, `admin_students.php`, `admin_login.php`, `admin_logout.php`

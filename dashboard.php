@@ -62,6 +62,7 @@ $pendingAssignments = mysqli_fetch_assoc(mysqli_query($conn, "
         <li class="nav-item"><a class="nav-link" href="courses.php">Courses</a></li>
         <li class="nav-item"><a class="nav-link" href="assignments.php">Assignments</a></li>
         <li class="nav-item"><a class="nav-link" href="results.php">Results</a></li>
+        <li class="nav-item"><a class="nav-link" href="timetable.php">Timetable</a></li>
         <li class="nav-item"><a class="nav-link" href="notices.php">Notices</a></li>
         <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
         <li class="nav-item"><a class="nav-link" href="admin_login.php">Admin Panel</a></li>
@@ -78,6 +79,7 @@ $pendingAssignments = mysqli_fetch_assoc(mysqli_query($conn, "
     <div class="d-flex flex-wrap gap-2">
       <a class="btn btn-auth-primary" href="assignments.php"><i class="bi bi-clipboard-check"></i> Submit an assignment</a>
       <a class="btn btn-logout" style="border-color:var(--line);color:var(--heading);" href="results.php"><i class="bi bi-graph-up"></i> View my results</a>
+      <a class="btn btn-logout" style="border-color:var(--line);color:var(--heading);" href="timetable.php"><i class="bi bi-calendar3"></i> My timetable</a>
     </div>
   </div>
 
