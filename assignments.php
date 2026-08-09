@@ -97,6 +97,7 @@ $today = date('Y-m-d');
       <a class="nav-link text-white" href="courses.php">Courses</a>
       <a class="nav-link text-white active" href="assignments.php">Assignments</a>
       <a class="nav-link text-white" href="results.php">Results</a>
+      <a class="nav-link text-white" href="fees.php">Fees</a>
       <a class="nav-link text-white" href="timetable.php">Timetable</a>
       <a class="nav-link text-white" href="notices.php">Notices</a>
       <a class="nav-link text-white" href="profile.php">Profile</a>

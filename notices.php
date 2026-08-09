@@ -3,7 +3,17 @@ require_once 'config/db.php';
 require_once 'config/auth.php';
 require_student();
 
-$notices = mysqli_query($conn, "SELECT id, title, content, posted_by, created_at FROM notices ORDER BY created_at DESC");
+// Search notices by title (PHP GET + LIKE query)
+$q = trim($_GET['q'] ?? '');
+if ($q !== '') {
+    $like = '%' . $q . '%';
+    $stmt = mysqli_prepare($conn, "SELECT id, title, content, posted_by, created_at FROM notices WHERE title LIKE ? ORDER BY created_at DESC");
+    mysqli_stmt_bind_param($stmt, 's', $like);
+    mysqli_stmt_execute($stmt);
+    $notices = mysqli_stmt_get_result($stmt);
+} else {
+    $notices = mysqli_query($conn, "SELECT id, title, content, posted_by, created_at FROM notices ORDER BY created_at DESC");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +34,7 @@ $notices = mysqli_query($conn, "SELECT id, title, content, posted_by, created_at
       <a class="nav-link text-white" href="courses.php">Courses</a>
       <a class="nav-link text-white" href="assignments.php">Assignments</a>
       <a class="nav-link text-white" href="results.php">Results</a>
+      <a class="nav-link text-white" href="fees.php">Fees</a>
       <a class="nav-link text-white" href="timetable.php">Timetable</a>
       <a class="nav-link text-white active" href="notices.php">Notices</a>
       <a class="nav-link text-white" href="profile.php">Profile</a>
@@ -33,10 +44,20 @@ $notices = mysqli_query($conn, "SELECT id, title, content, posted_by, created_at
 </nav>
 
 <div class="container py-4">
-  <div class="page-hero mb-4">
-    <h2 class="mb-1">All Notices</h2>
-    <p class="text-muted mb-0">Important academy announcements in one place.</p>
+  <div class="page-hero mb-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+    <div>
+      <h2 class="mb-1">All Notices</h2>
+      <p class="text-muted mb-0">Important academy announcements in one place.</p>
+    </div>
+    <form method="GET" action="notices.php" class="d-flex gap-2" style="max-width:340px;width:100%;">
+      <input class="form-control" type="text" name="q" value="<?php echo e($q); ?>" placeholder="Search notices by title">
+      <button class="btn btn-light" type="submit"><i class="bi bi-search"></i></button>
+    </form>
   </div>
+
+  <?php if ($q !== ''): ?>
+    <p class="small text-muted">Showing results for "<?php echo e($q); ?>" — <a href="notices.php">clear</a></p>
+  <?php endif; ?>
 
   <div class="card p-4">
     <?php if (mysqli_num_rows($notices) > 0): ?>
@@ -55,8 +76,8 @@ $notices = mysqli_query($conn, "SELECT id, title, content, posted_by, created_at
     <?php else: ?>
       <div class="empty-state">
         <i class="bi bi-megaphone"></i>
-        <h5>No notices available</h5>
-        <p class="text-muted mb-0">Check back later for new updates from the academy.</p>
+        <h5><?php echo $q !== '' ? 'No notices match your search' : 'No notices available'; ?></h5>
+        <p class="text-muted mb-0"><?php echo $q !== '' ? 'Try a different title keyword.' : 'Check back later for new updates from the academy.'; ?></p>
       </div>
     <?php endif; ?>
   </div>

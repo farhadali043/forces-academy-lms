@@ -27,6 +27,16 @@ $overall    = $totalMax > 0 ? round(($totalMarks / $totalMax) * 100, 1) : 0;
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <link rel="stylesheet" href="css/style.css">
+<style>
+  /* Print Results — hide everything except the results when printing */
+  @media print {
+    .app-navbar, .navbar, .btn, form, .no-print, footer { display: none !important; }
+    body { background: #fff !important; }
+    .page-hero p { display: none; }
+    .card { box-shadow: none !important; border: 1px solid #ddd !important; }
+    .container { max-width: 100% !important; }
+  }
+</style>
 </head>
 <body class="dashboard-body">
 <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
@@ -37,6 +47,7 @@ $overall    = $totalMax > 0 ? round(($totalMarks / $totalMax) * 100, 1) : 0;
       <a class="nav-link text-white" href="courses.php">Courses</a>
       <a class="nav-link text-white" href="assignments.php">Assignments</a>
       <a class="nav-link text-white active" href="results.php">Results</a>
+      <a class="nav-link text-white" href="fees.php">Fees</a>
       <a class="nav-link text-white" href="timetable.php">Timetable</a>
       <a class="nav-link text-white" href="notices.php">Notices</a>
       <a class="nav-link text-white" href="profile.php">Profile</a>
@@ -46,9 +57,16 @@ $overall    = $totalMax > 0 ? round(($totalMarks / $totalMax) * 100, 1) : 0;
 </nav>
 
 <div class="container py-4">
-  <div class="page-hero mb-4">
-    <h2 class="mb-1">My Results</h2>
-    <p class="text-muted mb-0">Your exam and quiz results across all subjects.</p>
+  <div class="page-hero mb-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+    <div>
+      <h2 class="mb-1">My Results</h2>
+      <p class="text-muted mb-0">Your exam and quiz results across all subjects.</p>
+    </div>
+    <?php if (count($rows) > 0): ?>
+      <button type="button" class="btn btn-auth-primary no-print" onclick="window.print()">
+        <i class="bi bi-printer"></i> Print Results
+      </button>
+    <?php endif; ?>
   </div>
 
   <?php if (count($rows) > 0): ?>

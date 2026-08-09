@@ -62,6 +62,7 @@ $pendingAssignments = mysqli_fetch_assoc(mysqli_query($conn, "
         <li class="nav-item"><a class="nav-link" href="courses.php">Courses</a></li>
         <li class="nav-item"><a class="nav-link" href="assignments.php">Assignments</a></li>
         <li class="nav-item"><a class="nav-link" href="results.php">Results</a></li>
+        <li class="nav-item"><a class="nav-link" href="fees.php">Fees</a></li>
         <li class="nav-item"><a class="nav-link" href="timetable.php">Timetable</a></li>
         <li class="nav-item"><a class="nav-link" href="notices.php">Notices</a></li>
         <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>

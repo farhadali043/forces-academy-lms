@@ -27,6 +27,7 @@ $nav_items = [
     'notices'     => ['admin_notices.php',     'bi-megaphone',       'Notices'],
     'assignments' => ['admin_assignments.php', 'bi-clipboard-check', 'Assignments'],
     'results'     => ['admin_results.php',     'bi-bar-chart-line',  'Upload Results'],
+    'fees'        => ['admin_fees.php',        'bi-cash-coin',       'Fees'],
     'timetable'   => ['admin_timetable.php',   'bi-calendar3',       'Timetable'],
     'students'    => ['admin_students.php',    'bi-people',          'Students'],
 ];
