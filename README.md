@@ -22,15 +22,15 @@ You can also register a new account from the login page.
 
 | Student Dashboard | Fee Management |
 |---|---|
-| ![Dashboard](Screenshots/dashboard.png) | ![Fees](Screenshots/fee.png) |
+| ![Dashboard](screenshots/dashboard.png) | ![Fees](screenshots/fee.png) |
 
 | Notices Search | Print Results |
 |---|---|
-| ![Search](Screenshots/search.png) | ![Print](Screenshots/print.png) |
+| ![Search](screenshots/search.png) | ![Print](screenshots/print.png) |
 
 | Profile Page |
 |---|
-| ![Profile](Screenshots/profile.png) |
+| ![Profile](screenshots/profile.png) |
 
 
 ## What it can do
@@ -77,3 +77,4 @@ The real `config/db.php` is not in the repo (it is in `.gitignore`) so the datab
 ---
 
 Built by Farhad Ali — Code Saviours SI-26, 2026
+SI26-WD-FA-029
