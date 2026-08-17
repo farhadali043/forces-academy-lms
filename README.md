@@ -1,72 +1,79 @@
 # Forces Academy LMS
 
-A Learning Management System built with **PHP + MySQL + Bootstrap 5**, covering
-**Week 1, Week 2, and Week 3** of the Full Stack track in one project.
+This is a Learning Management System I built for Forces Academy Faisalabad during my Full Stack internship at Code Saviours. Students can log in to see their courses, notices, timetable, results and fees, and submit their assignments online. There is also an admin side where the academy can manage everything, from students and courses to results and fees.
 
-Students can register, log in, browse courses and materials, read notices,
-**submit assignments**, and **view their results**. Admins get a full dashboard
-to manage courses, materials, notices, and students.
+I made the backend in PHP and MySQL and used Bootstrap 5 for the frontend. The project is hosted live, so it can be opened and tested in the browser.
 
-## Setup (XAMPP / WAMP)
+**Live site:** https://farhadlms.great-site.net/login.php
 
-1. Copy the `forces-academy-lms` folder into your web root (e.g. `htdocs/`).
-2. Start **Apache** and **MySQL**.
-3. Import the database: open phpMyAdmin → Import → choose
-   `forces_academy_lms_database.sql` (it creates the DB, all tables, and seed data).
-4. Make sure the `uploads/` folder exists and is writable — submitted assignment
-   files are saved there.
-5. Check `config/db.php` — defaults are host `localhost`, user `root`,
-   empty password, database `forces_academy_lms`. Adjust if your setup differs.
-6. Visit `http://localhost/forces-academy-lms/`.
+## Try it out
 
-## Logins
+**Student**
+- Email: farhad.ali@student.forces.edu.pk
+- Password: 12345
 
-- **Student:** email `farhad.ali@student.forces.edu.pk` · password `12345`
-  (or register a brand-new account from the login page)
-- **Admin:** username `admin` · password `admin123`
-  (open from the login page → "Open admin panel", or go to `admin_login.php`)
+You can also register a new account from the login page.
 
-## What's included
+**Admin**
+- Username: admin
+- Password: admin123
 
-**Week 1 — accounts**
-- `login.php`, `register.php`, `logout.php`, `index.php`
-- Sessions + `password_hash()` / `password_verify()`
+## Screenshots
 
-**Week 2 — core pages**
-- `dashboard.php` — stat cards, courses, latest notices, quick links
-- `courses.php` / `course_detail.php` — browse courses and open materials
-- `notices.php` — all announcements
-- `profile.php` — edit profile
+| Student Dashboard | Fee Management |
+|---|---|
+| ![Dashboard](Screenshots/dashboard.png) | ![Fees](Screenshots/fee.png) |
 
-**Week 3 — assignments & results**
-- `assignments.php` — list assignments, upload a PDF/image submission,
-  shows a **Submitted** badge once you've turned it in
-- `results.php` — your marks, percentage and grade per subject
-- Tables: `assignments`, `submissions`, `results`
+| Notices Search | Print Results |
+|---|---|
+| ![Search](Screenshots/search.png) | ![Print](Screenshots/print.png) |
 
-**Week 6 — timetable & profile**
+| Profile Page |
+|---|
+| ![Profile](Screenshots/profile.png) |
 
-- `timetable.php` — the logged-in student's weekly class timetable, shown as a
-  grid (days as columns, time slots as rows)
-- `admin_timetable.php` — admin adds timetable entries (class, day, time slot,
-  subject, teacher), lists them all, and can delete any entry
-- `profile.php` — view profile details, **edit name and email**, and a separate
-  **change password** form that verifies the current password first
-- Table: `timetable`
 
-**Admin side** (`admin_partials/` shared layout)
-- `admin_dashboard.php`, `admin_courses.php`, `admin_course_materials.php`,
-  `admin_notices.php`, `admin_students.php`, `admin_login.php`, `admin_logout.php`
+## What it can do
 
-**Shared**
-- `config/db.php` (MySQL connection) · `config/auth.php` (session helpers,
-  `require_student()`, `require_admin()`, `e()`)
-- `css/style.css`, `js/main.js`, `uploads/` (submitted files)
+**For students**
+- Sign up, log in and log out (with sessions and hashed passwords)
+- A dashboard that shows their courses, latest notices and quick links
+- Browse courses and open the study materials
+- Upload an assignment as a PDF or image file
+- Check results with marks, percentage and grade, and print them
+- See the weekly class timetable
+- View fee records with the total pending amount shown at the top
+- Search notices by title
+- Edit the profile and change password
 
-## Notes
+**For the admin**
+- A separate admin login and dashboard
+- Add and manage courses and course materials
+- Post notices
+- Manage students and search them by name, email or roll number
+- Upload student results
+- Set up the class timetable
+- Add fees and track which ones are paid, pending or overdue
 
-- All database access uses **prepared statements**; passwords are hashed;
-  output is escaped with the `e()` helper.
-- Assignment uploads accept **PDF and image files only** (validated by extension
-  and real MIME type), max 5 MB, saved with a unique filename.
-- Deleting a course/student cascades to related rows via foreign keys.
+## Built with
+
+- PHP for the backend
+- MySQL for the database
+- Bootstrap 5, HTML, CSS and JavaScript for the frontend
+- Hosted on InfinityFree
+
+For safety I used prepared statements for the database queries, stored the passwords in hashed form, and allowed only PDF and image files for uploads.
+
+## Running it locally
+
+1. Start Apache and MySQL in XAMPP.
+2. Put the project folder inside `htdocs`.
+3. In phpMyAdmin, create a database and import `forces_academy_lms_database.sql`, then also import `week6_timetable.sql` and `week7_fees.sql`.
+4. Copy `config/db.example.php` to `config/db.php` and fill in your own database details (host, user, password, database name).
+5. Open `http://localhost/forces-academy-lms/` in your browser.
+
+The real `config/db.php` is not in the repo (it is in `.gitignore`) so the database password stays private. That is what `db.example.php` is for.
+
+---
+
+Built by Farhad Ali — Code Saviours SI-26, 2026
